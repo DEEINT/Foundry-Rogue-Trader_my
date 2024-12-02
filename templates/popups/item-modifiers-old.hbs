@@ -1,0 +1,25 @@
+<form></form>
+
+  <h1>ITEM MODIFIERS</h1>
+  <div>
+    {{#each modifiers as |modifier t|}}
+
+      <div class="form-group wrapper">
+        <label>{{modifier.name}}</label>
+        {{#if modifier.hasRating}}
+        <input type="text" name="{{modifier.key}}-rating" value="{{modifier.existingmodifier.rating}}">
+        {{/if}}
+        <input type="checkbox" name="{{modifier.key}}" {{checked modifier.existingmodifier}}>
+      </div>
+
+    {{/each}}
+
+  </div>
+  <div class="form-group">
+    <label>Custom modifiers <i class="far fa-question-circle" style="margin-left:3px;" title="FORMAT - modifier 1: modifier 1 Description | modifier 2: modifier 2 Description | etc."></i></label>
+    <div class="form-fields">
+      <input name="custom-modifiers" type="text" value="{{custom}}">
+    </div>
+  </div>
+  <button type="submit">Update</button>
+</form>

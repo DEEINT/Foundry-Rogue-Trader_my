@@ -1,0 +1,14 @@
+<div class="resource">
+  <div class="grid grid-2col">
+    <div class="grid-span-1">
+      <label class="resource-label">Affiliation</label>
+      <input type="text" name="system.affiliation" value="{{system.affiliation}}" data-dtype="String" />
+    </div>
+    <div class="grid-span-1">
+      <label class="resource-label">Captain</label>
+      <input type="text" name="system.captain" value="{{system.captain}}" data-dtype="String" />
+    </div>
+  </div>
+</div>
+{{!-- If you want TinyMCE editors to output inline rolls when rendered, you need to pass the actor's roll data to the rollData property. --}}
+{{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}

@@ -1,0 +1,177 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="core">Core</a>
+    <a class="item" data-tab="supplemental">Supplemental</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Core Tab --}}
+    <div class="tab core" data-group="primary" data-tab="core">
+          <div class="grid grid-2col">
+              <div class="grid-span-1">
+                  <label class="resource-label">Craftsmanship</label>
+                  <input type="text" name="system.craftsmanship" value="{{system.craftsmanship}}" data-dtype="String" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Availability</label>
+                  <input type="text" name="system.availability" value="{{system.availability}}" data-dtype="String" />
+              </div>
+          </div>
+        <div class="grid grid-3col">
+          <div class="grid-span-1">
+            <label class="resource-label">Type</label>
+            <!--<input type="text" name="system.type" value="{{system.type}}" data-dtype="String" />-->
+            <select name="system.type">
+              {{#select system.type}}
+              {{#each (locCfg "voidship_component_type" )as |option key|}}
+                <option value="{{key}}">{{option}}</option>
+              {{/each}}
+              {{/select}}
+            </select>
+          </div>
+          <div class="grid-span-1">
+            <label class="resource-label">Subtype</label>
+            <!--<input type="text" name="system.subtype" value="{{system.subtype}}" data-dtype="String" />-->
+            <select name="system.subtype">
+              {{#select system.subtype}}
+                {{#switch system.type}}
+                  {{#case 'essential'}}
+                    {{#each (locCfg "voidship_essential_type" )as |option key|}}
+                      <option value="{{key}}">{{option}}</option>
+                    {{/each}}
+                  {{/case}}
+                  {{#case 'weapon'}}
+                    {{#each (locCfg "voidship_weapon_type" )as |option key|}}
+                      <option value="{{key}}">{{option}}</option>
+                    {{/each}}
+                  {{/case}}
+                  {{#default '<option value="">N/A</option>'}}
+                  {{/default}}
+                {{/switch}}
+              {{/select}}
+            </select>
+          </div>
+          <div class="grid-span-1">
+            <label class="resource-label">Origin</label>
+            <input type="text" name="system.origin" value="{{system.origin}}" data-dtype="String" />
+            <!--<select name="system.type">
+            </select>-->
+          </div>
+        </div>
+      <div class="grid grid-3col">
+          <div class="grid-span-1">
+              <label class="resource-label">Space</label>
+              <input type="number" name="system.space" value="{{system.space}}" data-dtype="Number" />
+          </div>
+          <div class="grid-span-1">
+              <label class="resource-label">Power</label>
+              <input type="number" name="system.power" value="{{system.power}}" data-dtype="Number" />
+          </div>
+          <div class="grid-span-1">
+              <label class="resource-label">SP</label>
+              <input type="number" name="system.ship_points" value="{{system.ship_points}}" data-dtype="Number" />
+          </div>
+        </div>
+
+        <div class="wrapper">
+          <div class="item-form-group stacked">
+            <label>Component Modifiers<a class="item-modifiers"><i class="fas fa-cog"></i></a></label>            
+            <div class="item-form-inputs">
+              <input disabled type="text" value="{{item.Modifiers}}" />
+            </div>
+          </div>
+        </div>
+          
+    </div>
+            
+    {{!-- Supplemental Tab --}}
+    <div class="tab supplemental" data-group="primary" data-tab="supplemental">
+      <div class="grid grid-8col">
+              <div class="grid-span-1">
+                  <label class="resource-label">Speed</label>
+                  <input type="number" name="system.speed" value="{{system.speed}}" data-dtype="Number" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Detection</label>
+                  <input type="number" name="system.detection" value="{{system.detection}}" data-dtype="Number" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Manoeuvrability</label>
+                  <input type="number" name="system.manoeuvrability" value="{{system.manoeuvrability}}" data-dtype="Number" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Integrity</label>
+                  <input type="number" name="system.integrity" value="{{system.integrity}}" data-dtype="Number" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Morale</label>
+                  <input type="number" name="system.morale" value="{{system.morale}}" data-dtype="Number" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Crew Population</label>
+                  <input type="number" name="system.crew_population" value="{{system.crew_population}}" data-dtype="Number" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Turret Rating</label>
+                  <input type="number" name="system.turretrating" value="{{system.turretrating}}" data-dtype="Number" />
+              </div>
+              <div class="grid-span-1">
+                  <label class="resource-label">Armour</label>
+                  <input type="number" name="system.armour" value="{{system.armour}}" data-dtype="Number" />
+              </div>
+      </div>
+      <div class="grid grid-8col">
+        <div class="grid-span-1">
+          <label class="resource-label">Slot</label>
+            <select name="system.weapon.slot">
+              {{#select system.weapon.slot}}
+                {{#each (locCfg "voidship_slot" )as |option key|}}
+                  <option value="{{key}}">{{option}}</option>
+                {{/each}}
+              {{/select}}
+            </select>
+        </div>
+        <div class="grid-span-1">
+          <label class="resource-label">NumDice</label>
+          <input type="number" name="system.weapon.diceNum" value="{{system.weapon.diceNum}}" data-dtype="Number" />
+        </div>
+        <div class="grid-span-1">
+          <label class="resource-label">DiceSize</label>
+          <input type="number" name="system.weapon.diceSize" value="{{system.weapon.diceSize}}" data-dtype="Number" />
+        </div>
+        <div class="grid-span-1">
+          <label class="resource-label">DiceBonus</label>
+          <input type="number" name="system.weapon.diceBonus" value="{{system.weapon.diceBonus}}" data-dtype="Number" />
+        </div>
+        <div class="grid-span-2">
+          <label class="resource-label">Range</label>
+          <input type="number" name="system.weapon.range.min" value="{{system.weapon.range.min}}" data-dtype="Number" />
+          <input type="number" name="system.weapon.range.max" value="{{system.weapon.range.max}}" data-dtype="Number" />
+        </div>
+        <div class="grid-span-1">
+          <label class="resource-label">Crit</label>
+          <input type="number" name="system.weapon.crit" value="{{system.weapon.crit}}" data-dtype="Number" />
+        </div>
+        <div class="grid-span-1">
+          <label class="resource-label">Str</label>
+          <input type="number" name="system.weapon.strength" value="{{system.weapon.strength}}" data-dtype="Number" />
+        </div>
+      </div>
+    </div>
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description">
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+  </section>
+</form>

@@ -1,0 +1,145 @@
+{
+  "ROGUE_TRADER": {
+    "Ability": {
+      "Str": { "long": "Strength", "abbr": "str" },
+      "Con": { "long": "Constitution", "abbr": "con" },
+      "Dex": { "long": "Dexterity", "abbr": "dex" },
+      "Int": { "long": "Intelligence", "abbr": "int" },
+      "Wis": { "long": "Wisdom", "abbr": "wis" },
+      "Cha": { "long": "Charisma", "abbr": "cha" }
+    },
+    "SheetLabels": {
+      "Actor": "RogueTrader Actor Sheet",
+      "Item": "RogueTrader Item Sheet"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    },
+    "characteristic": {
+      "ws": {"abbr": "WS",  "long": "Weapon Skill"},
+      "bs": {"abbr": "BS",  "long": "Ballistic Skill"},
+      "s":  {"abbr": "S",   "long": "Strength"},
+      "t":  {"abbr": "T",   "long": "Toughness"},
+      "a":  {"abbr": "A",   "long": "Agility"},
+      "i":  {"abbr": "I",   "long": "Intelligence"},
+      "p":  {"abbr": "P",   "long": "Perception"},
+      "wp": {"abbr": "WP",  "long": "Willpower"},
+      "f":  {"abbr": "F",   "long": "Fellowship"},
+      "in": {"abbr": "IN",  "long": "Influence"}
+    },
+    "voidship_stat": {
+      "space":                {"abbr": "S" ,  "long":"Space"},
+      "power":                {"abbr": "P" ,  "long":"Power"},
+      "ship_points":          {"abbr": "SP",  "long":"Ship Points"},
+      "integrity":            {"abbr": "I" ,  "long":"Integrity"},
+      "speed":                {"abbr": "Spd", "long":"Speed"},
+      "detection":            {"abbr": "Det", "long":"Detection"},
+      "armor":                {"abbr": "AR",  "long":"Armor"},
+      "shields":              {"abbr": "VS",  "long":"Shields"},
+      "turret_rating":        {"abbr": "TR",  "long":"Turret Rating"},
+      "morale":               {"abbr": "ML",  "long":"Morale"},
+      "morale_loss":          {"abbr": "ML",  "long":"Morale Loss"},
+      "crew_rating":          {"abbr": "CR",  "long":"Crew Rating"},
+      "crew_population":      {"abbr": "CP",  "long":"Crew Population"},
+      "crew_population_loss": {"abbr": "CPL", "long":"Crew Population Loss"}
+    },
+    "voidship_slot": {
+      "prow":       {"abbr": "Pr", "long":"Prow"},
+      "port":       {"abbr": "Po", "long":"Port"},
+      "starboard":  {"abbr": "Sb", "long":"Starboard"},
+      "keel":       {"abbr": "Ke", "long":"Keel"},
+      "misc":       {"abbr": "Mi", "long":"Misc"}
+    },
+    "voidship_component_type": {
+      "hull":         {"abbr": "H", "long":"Hull"},
+      "essential":    {"abbr": "E", "long":"Essential"},
+      "supplemental": {"abbr": "S", "long":"Supplemental"},
+      "weapon":       {"abbr": "W", "long":"Weapon"},
+      "upgrade":      {"abbr": "U", "long":"Upgrade"}
+    },
+    "voidship_weapon_type": {
+      "macrocannon":            { "abbr": "Mc", "long":"Macrocannon"},
+      "macrocannon_broadside":  { "abbr": "MB", "long":"Broadside"},
+      "lance":                  { "abbr": "Ln", "long":"Lance"},
+      "torpedo":                { "abbr": "Tp", "long":"Torpedo"},
+      "nova":                   { "abbr": "Nv", "long":"Nova"},
+      "small_craft":            { "abbr": "SC", "long":"Small Craft"}
+    },
+    "voidship_hull_type": {
+      "raider":         {"long": "Raider",        "abbr": "R" },
+      "frigate":        {"long": "Frigate",       "abbr": "F" },
+      "light_cruiser":  {"long": "Light_Cruiser", "abbr": "LC" },
+      "cruiser":        {"long": "Cruiser",       "abbr": "C" },
+      "battlecruiser":  {"long": "Battlecruiser", "abbr": "BC" },
+      "grand_cruiser":  {"long": "Grand Cruiser", "abbr": "GC" }
+    },
+    "voidship_essential_type": {
+      "augur_array":    {"long":"Augur Array"},
+      "crew_quarters":  {"long":"Crew Quarters"},
+      "gellar_field":   {"long":"Gellar Field"},
+      "life_sustainer": {"long":"Life Sustainer"},
+      "plasma_drive":   {"long":"Plasma Drive"},
+      "ships_bridge":   {"long":"Ship's Bridge"},
+      "void_shields":   {"long":"Void Shields"},
+      "warp_engine":    {"long":"Warp Engine"}
+    },
+    "craftsmanship": {
+      "poor":   {"abbr": "P", "long":"Poor"},
+      "common": {"abbr": "C", "long":"Common"},
+      "good":   {"abbr": "G", "long":"Good"},
+      "best":   {"abbr": "B", "long":"Best"}
+    },
+    "availability": {
+      "ubiquitous":     {"abbr": "U", "long":"Ubiquitous"},
+      "abundant":       {"abbr": "A", "long":"Abundant"},
+      "plentiful":      {"abbr": "P", "long":"Plentiful"},
+      "common":         {"abbr": "C", "long":"Common"},
+      "average":        {"abbr": "A", "long":"Average"},
+      "scarce":         {"abbr": "S", "long":"Scarce"},
+      "rare":           {"abbr": "R", "long":"Rare"},
+      "very_rare":      {"abbr": "VR","long":"Very Rare"},
+      "extremely_rare": {"abbr": "ER","long":"Extremely Rare"},
+      "near_unique":    {"abbr": "NU","long":"Near Unique"},
+      "unique":         {"abbr": "U", "long":"Unique"}
+    },
+    "difficulty": {
+      "trivial"     : {"abbr": "Tr",  "long":"Trivial (+60)"},
+      "elementary"  : {"abbr": "El",  "long":"Elementary (+50)"},
+      "simple"      : {"abbr": "Si",  "long":"Simple (+40)"},
+      "easy"        : {"abbr": "Ea",  "long":"Easy (+30)"},
+      "routine"     : {"abbr": "Ro",  "long":"Routine (+20)"},
+      "ordinary"    : {"abbr": "Or",  "long":"Ordinary (+10)"},
+      "challenging" : {"abbr": "Ch",  "long":"Challenging (+0)"},
+      "difficult"   : {"abbr": "Di",  "long":"Difficult (-10)"},
+      "hard"        : {"abbr": "Ha",  "long":"Hard (-20)"},
+      "very_hard"   : {"abbr": "VH",  "long":"Very Hard (-30)"},
+      "arduous"     : {"abbr": "Ar",  "long":"Arduous (-40)"},
+      "punishing"   : {"abbr": "Pu",  "long":"Punishing (-50)"},
+      "hellish"     : {"abbr": "He",  "long":"Hellish (-60)"}
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC",
+      "voidship":"Voidship"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature",
+      "spell": "Spell",
+      "component":"VS Component"
+    }
+  }
+}

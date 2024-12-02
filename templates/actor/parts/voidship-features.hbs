@@ -1,0 +1,23 @@
+<ol class='items-list'>
+  <li class='item flexrow items-header'>
+    <div class='item-name'>Type</div>
+    <div class='item-name'>{{localize 'Name'}}</div>
+    <div class='item-formula'>Status</div>
+  </li>
+  {{#each equipped as |item id|}}
+    <li class='item flexrow' data-item-id='{{item._id}}'>
+      <div class='item-type'>
+        <h4>{{item.system.type}}</h4>
+      </div>
+      <div class='item-name'>
+        <div class='item-image'>
+          <a class='rollable' data-roll-type='item'>
+            <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
+          </a>
+        </div>
+        <h4>{{item.name}}</h4>
+      </div>
+      <div class='item-status item-prop'>{{item.system.status}}</div>
+    </li>
+  {{/each}}
+</ol>

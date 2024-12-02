@@ -1,0 +1,145 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+        <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+        </div>
+    </header>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="attributes">Attributes</a>
+        <a class="item" data-tab="about">About</a>
+        <a class="item" data-tab="description">Description</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+        {{!-- Attributes Tab --}}
+        <div class="tab attributes" data-group="primary" data-tab="attributes">
+            {{!-- As you add new fields, add them in here! --}}
+            <div class="resource">
+            <label class="resource-label">Core</label>
+            <span></span>
+            <div class="grid grid-3col">
+                <div class="grid-span-1">
+                    <label class="resource-label">Space</label>
+                    <input type="number" name="system.space" value="{{system.space}}" data-dtype="Number" />
+                </div>
+                <div class="grid-span-1">
+                    <label class="resource-label">Power</label>
+                    <input type="number" name="system.power" value="{{system.power}}" data-dtype="Number" />
+                </div>
+                <div class="grid-span-1">
+                    <label class="resource-label">SP</label>
+                    <input type="number" name="system.ship_points" value="{{system.ship_points}}" data-dtype="Number" />
+                </div>
+                </div>
+                <div class="grid grid-8col">
+                    <div class="grid-span-1">
+                        <label class="resource-label">Speed</label>
+                        <input type="number" name="system.speed" value="{{system.speed}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Detection</label>
+                        <input type="number" name="system.detection" value="{{system.detection}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Manoeuvrability</label>
+                        <input type="number" name="system.manoeuvrability" value="{{system.manoeuvrability}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Integrity</label>
+                        <input type="number" name="system.integrity" value="{{system.integrity}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Morale</label>
+                        <input type="number" name="system.morale" value="{{system.morale}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Crew Population</label>
+                        <input type="number" name="system.crew_population" value="{{system.crew_population}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Turret Rating</label>
+                        <input type="number" name="system.turretrating" value="{{system.turretrating}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Armour</label>
+                        <input type="number" name="system.armour" value="{{system.armour}}" data-dtype="Number" />
+                    </div>
+                </div>
+            </div>
+            <div class="resource">
+                <label class="resource-label">Slots</label>
+                <span></span>
+                <div class="grid grid-4col">
+                    <div class="grid-span-1">
+                        <label class="resource-label">Prow</label>
+                        <input type="number" name="system.weaponcapacity.prow" value="{{system.weaponcapacity.prow}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Port</label>
+                        <input type="number" name="system.weaponcapacity.port" value="{{system.weaponcapacity.port}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Starboard</label>
+                        <input type="number" name="system.weaponcapacity.starboard" value="{{system.weaponcapacity.starboard}}" data-dtype="Number" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Keel</label>
+                        <input type="number" name="system.weaponcapacity.keel" value="{{system.weaponcapacity.keel}}" data-dtype="Number" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- About Tab --}}
+        <div class="tab about" data-group="primary" data-tab="about">
+            <div class="resource">
+                <label class="resource-label">Acquisition</label>
+                <span></span>
+                <div class="grid grid-2col">
+                    <div class="grid-span-1">
+                        <label class="resource-label">Craftsmanship</label>
+                        <input type="text" name="system.craftsmanship" value="{{system.craftsmanship}}" data-dtype="String" />
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Availability</label>
+                        <input type="text" name="system.availability" value="{{system.availability}}" data-dtype="String" />
+                    </div>
+                </div>
+            </div>
+            <div class="resource">
+                <label class="resource-label">Classification</label>
+                <span></span>
+                <div class="grid grid-3col">
+                    <div class="grid-span-1">
+                        <label class="resource-label">Class</label>
+                        <input type="text" name="system.type" value="{{system.type}}" data-dtype="String" />
+                        <!--<select name="system.type">
+                        </select>-->
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Subclass</label>
+                        <input type="text" name="system.subtype" value="{{system.subtype}}" data-dtype="String" />
+                        <!--<select name="system.subtype">
+                        </select>-->
+                    </div>
+                    <div class="grid-span-1">
+                        <label class="resource-label">Origin</label>
+                        <input type="text" name="system.origin" value="{{system.origin}}" data-dtype="String" />
+                        <!--<select name="system.type">
+                        </select>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+        </div>
+
+    </section>
+</form>
