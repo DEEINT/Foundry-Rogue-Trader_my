@@ -1,4 +1,6 @@
 import RogueTraderItem from "./item.mjs";
+//DEF: experimental schema for groups of npcs
+//TODO: figure out what to do with this I guess
 
 export default class RogueTraderStaff extends RogueTraderItem {
 

@@ -1,6 +1,7 @@
 import RogueTraderItem from "./item.mjs";
-
-export default class RogueTraderQuirk extends RogueTraderItem {
+//DEF: Complications cover Machine Spirit Oddities, Histories, and Background Packages for voidships
+//TODO: fill out
+export default class RogueTraderComplication extends RogueTraderItem {
 
   static defineSchema() {
     const fields = foundry.data.fields;

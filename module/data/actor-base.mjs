@@ -1,5 +1,6 @@
+//TODO: re-word to match the Warhammer naming conventions
 export default class RogueTraderActorBase extends foundry.abstract.TypeDataModel {
-
+  
   static defineSchema() {
     const fields = foundry.data.fields;
     const requiredInteger = { required: true, nullable: false, integer: true };

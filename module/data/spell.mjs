@@ -1,4 +1,6 @@
 import RogueTraderItemBase from "./item-base.mjs";
+//DEF: spell boilerplate from D&D
+//TODO: alter to psychic power
 
 export default class RogueTraderSpell extends RogueTraderItemBase {
 

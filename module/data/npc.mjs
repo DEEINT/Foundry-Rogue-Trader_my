@@ -1,4 +1,7 @@
 import RogueTraderActorBase from "./actor-base.mjs";
+//DEF: NPC character baseline
+//TODO: build out a possible taxonomy for npcs ranging from skeletal mook to GMPC equivalent 
+//(probably just two levels of npc)
 
 export default class RogueTraderNPC extends RogueTraderActorBase {
 

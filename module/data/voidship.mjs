@@ -1,4 +1,6 @@
 import RogueTraderActorBase from "./actor-base.mjs";
+//DEF: basic voidship ACTOR template
+//TODO: N/A (other than tinker)
 
 export default class RogueTraderVoidship extends RogueTraderActorBase {
 

@@ -3,6 +3,6 @@
     "types": ["character", "npc","voidship"]
   },
   "Item": {
-    "types": ["item","feature","spell","hull","component","quirk","staff"]
+    "types": ["item","feature","spell","hull","component","complication","staff"]
   }
 }

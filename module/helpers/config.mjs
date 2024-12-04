@@ -1,12 +1,12 @@
 export const ROGUE_TRADER = {};
-
+//TODOS: figure out if I want to use the 'flat' structure I've inherited from the boilerplate or build a deeper tree structure like the previous system attempt
 /**
  * The set of Ability Scores used within the system.
  * @type {Object}
  */
 
 
-//TODO: Deprecate after character sheets are altered
+//TODO: Deprecate old D&D boilerplate after character sheets are altered
 ROGUE_TRADER.abilities = {
   str: 'ROGUE_TRADER.Ability.Str.long',
   dex: 'ROGUE_TRADER.Ability.Dex.long',
@@ -24,22 +24,34 @@ ROGUE_TRADER.ability_abbreviations = {
   wis: 'ROGUE_TRADER.Ability.Wis.abbr',
   cha: 'ROGUE_TRADER.Ability.Cha.abbr',
 };
-//END TD
+
+//TODO: possibly use this schema for the rest of cfg: a consistent loc obj w/ long and abbr properties, plus whatever else is needed
+ROGUE_TRADER.characteristics = {
+  ws: {loc: {long: 'ROGUE_TRADER.characteristic.ws.long', abbr: 'ROGUE_TRADER.characteristic.ws.abbr'}},
+  bs: {loc: {long: 'ROGUE_TRADER.characteristic.bs.long', abbr: 'ROGUE_TRADER.characteristic.bs.abbr'}},
+  s:  {loc: {long: 'ROGUE_TRADER.characteristic.s.long',  abbr: 'ROGUE_TRADER.characteristic.s.abbr'}},
+  t:  {loc: {long: 'ROGUE_TRADER.characteristic.t.long',  abbr: 'ROGUE_TRADER.characteristic.t.abbr'}},
+  a:  {loc: {long: 'ROGUE_TRADER.characteristic.a.long',  abbr: 'ROGUE_TRADER.characteristic.a.abbr'}},
+  i:  {loc: {long: 'ROGUE_TRADER.characteristic.i.long',  abbr: 'ROGUE_TRADER.characteristic.i.abbr'}},
+  p:  {loc: {long: 'ROGUE_TRADER.characteristic.p.long',  abbr: 'ROGUE_TRADER.characteristic.p.abbr'}},
+  wp: {loc: {long: 'ROGUE_TRADER.characteristic.wp.long', abbr: 'ROGUE_TRADER.characteristic.wp.abbr'}},
+  f:  {loc: {long: 'ROGUE_TRADER.characteristic.f.long',  abbr: 'ROGUE_TRADER.characteristic.f.abbr'}},
+  in: {loc: {long: 'ROGUE_TRADER.characteristic.in.long', abbr: 'ROGUE_TRADER.characteristic.in.abbr'}},
+};
 
 
-//TODO: figure out if this is even useful. Supposed to validate which items can belong to which actors
-ROGUE_TRADER.item_map = {
+//TODO: build this out into a map of what items can be added to what actors? Possibly useful for validation?
+/*ROGUE_TRADER.item_map = {
   voidship: {items: ['component','quirk','staff']},
   character: {items: []},
   vehicle: {items: []},
   organization: {items:[]},
   squadron: {items:[]},
   unit: {items:[]}
-}
-//TODO: maybe swap these into a full taxonomy tree thing?
+}*/
 
-
-ROGUE_TRADER.voidship_component_map = {
+//TODO: this is intended to be a map object for type/subtypes; implement it fully or toss it out
+/*ROGUE_TRADER.voidship_component_map = {
   hull:         'voidship_hull_type',
   essential:    'voidship_essential_type',
   supplemental: 'voidship_misc_type',
@@ -53,40 +65,10 @@ ROGUE_TRADER.voidship_map = {
 };
 ROGUE_TRADER.voidship_misc_type = {
   default: '--'
-};
+};*/
 
-
-//ENUMERATED CATEGORIES
-ROGUE_TRADER.craftsmanship_values = {
-  poor:   0,
-  common: 1,
-  good:   2,
-  best:   3,
-};
-
-ROGUE_TRADER.test_diff_values = {
-  trivial     : 60,
-  elementary  : 50,
-  simple      : 40,
-  easy        : 30,
-  routine     : 20,
-  ordinary    : 10,
-  challenging : 0,
-  difficult   : -10,
-  hard        : -20,
-  very_hard   : -30,
-  arduous     : -40,
-  punishing   : -50,
-  hellish     : -60,
-};
-
-//TODO: finish this
-ROGUE_TRADER.availability_values = {
-  unique: -60
-};
-
-//LOCALIZATION OBJECTS
-ROGUE_TRADER.characteristic = {
+//TODO toss this once I'm sure the improved localization structure works
+/* ROGUE_TRADER.characteristic = {
   ws: 'ROGUE_TRADER.characteristic.ws.long',
   bs: 'ROGUE_TRADER.characteristic.bs.long',
   s:  'ROGUE_TRADER.characteristic.s.long',
@@ -112,6 +94,53 @@ ROGUE_TRADER.characteristic_abbr = {
   in: 'ROGUE_TRADER.characteristic.in.abbr',
 };
 
+ROGUE_TRADER.craftsmanship = {
+  poor:   'ROGUE_TRADER.craftsmanship.poor.long',
+  common: 'ROGUE_TRADER.craftsmanship.common.long',
+  good:   'ROGUE_TRADER.craftsmanship.good.long',
+  best:   'ROGUE_TRADER.craftsmanship.best.long',
+};
+
+ROGUE_TRADER.craftsmanship_abbr = {
+  poor:   'ROGUE_TRADER.craftsmanship.poor.abbr',
+  common: 'ROGUE_TRADER.craftsmanship.common.abbr',
+  good:   'ROGUE_TRADER.craftsmanship.good.abbr',
+  best:   'ROGUE_TRADER.craftsmanship.best.abbr',
+};
+
+*/
+
+//TODO: put these enums in the common localization structure
+/*ROGUE_TRADER.craftsmanship = {
+  poor:   0,
+  common: 1,
+  good:   2,
+  best:   3,
+};
+
+ROGUE_TRADER.test_diff = {
+  trivial     : 60,
+  elementary  : 50,
+  simple      : 40,
+  easy        : 30,
+  routine     : 20,
+  ordinary    : 10,
+  challenging : 0,
+  difficult   : -10,
+  hard        : -20,
+  very_hard   : -30,
+  arduous     : -40,
+  punishing   : -50,
+  hellish     : -60,
+};
+
+ROGUE_TRADER.availability = {
+  near_unique: -50,
+  unique: -60
+};
+*/
+
+//TODO: refactor these into the common localization structure and deal with refs elsewhere in the code
 ROGUE_TRADER.voidship_stat = {
   integrity:            'ROGUE_TRADER.voidship_stat.integrity.long',
   maneuverability:      'ROGUE_TRADER.voidship_stat.maneuverability.long',
@@ -350,29 +379,7 @@ ROGUE_TRADER.voidship_hull_type_abbreviation = {
   grand_cruiser:  'ROGUE_TRADER.voidship_hull_type.grand_cruiser.abbr',
 };
 
-////Non-VS
-
-ROGUE_TRADER.craftsmanship = {
-  poor:   'ROGUE_TRADER.craftsmanship.poor.long',
-  common: 'ROGUE_TRADER.craftsmanship.common.long',
-  good:   'ROGUE_TRADER.craftsmanship.good.long',
-  best:   'ROGUE_TRADER.craftsmanship.best.long',
-};
-
-ROGUE_TRADER.craftsmanship_abbr = {
-  poor:   'ROGUE_TRADER.craftsmanship.poor.abbr',
-  common: 'ROGUE_TRADER.craftsmanship.common.abbr',
-  good:   'ROGUE_TRADER.craftsmanship.good.abbr',
-  best:   'ROGUE_TRADER.craftsmanship.best.abbr',
-};
-
-
-
-//different format?
-
-
-
-//TODO: Reformulate using the above style (and add localization)
+//TODO: take this cfg code from the previous version and refactor into the above structure
 /*
 ROGUE_TRADER.skills = {
   "acrobatics"          :  {name: "Acrobatics",         attribute: "agility"},

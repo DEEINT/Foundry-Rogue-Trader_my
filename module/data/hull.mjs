@@ -1,6 +1,6 @@
 import RogueTraderItemBase from "./item-base.mjs";
-
-//TODO: Deprecate and eliminate this!
+//DEF: schema for Voidship Hulls
+//TODO: potentially fold into the Component schema as a special case?
 export default class RogueTraderHull extends RogueTraderItemBase {
 
   static defineSchema() {

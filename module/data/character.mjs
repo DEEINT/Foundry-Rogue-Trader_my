@@ -1,4 +1,7 @@
 import RogueTraderActorBase from "./actor-base.mjs";
+//DEF: Full-featured Player-character schema
+//TODO: replace generic D&D boilerplate w/ 40k equivalent and fill out completely :(
+//also probably rename?
 
 export default class RogueTraderCharacter extends RogueTraderActorBase {
 

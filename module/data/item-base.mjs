@@ -13,3 +13,23 @@ export default class RogueTraderItemBase extends foundry.abstract.TypeDataModel 
     return schema;
   }
 }
+
+/*DEF: Item taxonomy diagram
+
+[item-base]
+  |
+  ▼
+  [item((phys,vs))] --> {vehicle group, personal group, starsys group, XP group}
+    |
+    {voidship group}
+    |
+    ▼
+    [hull(phys,vs)] -- [component(phys,vs)] -- [complications(vs)]
+
+    ...
+    |
+    {personal}
+    |
+    ▼
+    TBD
+*/
