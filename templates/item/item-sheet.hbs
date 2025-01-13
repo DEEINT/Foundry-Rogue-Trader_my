@@ -10,8 +10,8 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="core">Core</a>
     <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -22,8 +22,8 @@
       {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
-    {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
+    {{!-- Core Tab --}}
+    <div class="tab core" data-group="primary" data-tab="core">
       {{!-- As you add new fields, add them in here! --}}
     </div>
   </section>

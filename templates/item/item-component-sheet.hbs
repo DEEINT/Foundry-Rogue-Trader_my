@@ -8,9 +8,8 @@
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="core">Core</a>
-    <a class="item" data-tab="supplemental">Supplemental</a>
+    <a class="item" data-tab="description">Description</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -68,106 +67,43 @@
             </select>-->
           </div>
         </div>
-      <div class="grid grid-3col">
+      <!--<div class="grid grid-3col">
           <div class="grid-span-1">
               <label class="resource-label">Space</label>
-              <input type="number" name="system.space" value="{{system.space}}" data-dtype="Number" />
+              <input type="number" name="system.comp_attrs.space" value="{{system.space}}" data-dtype="Number" />
           </div>
           <div class="grid-span-1">
               <label class="resource-label">Power</label>
-              <input type="number" name="system.power" value="{{system.power}}" data-dtype="Number" />
+              <input type="number" name="system.comp_attrs.power" value="{{system.power}}" data-dtype="Number" />
           </div>
           <div class="grid-span-1">
               <label class="resource-label">SP</label>
-              <input type="number" name="system.ship_points" value="{{system.ship_points}}" data-dtype="Number" />
+              <input type="number" name="system.comp_attrs.ship_points" value="{{system.ship_points}}" data-dtype="Number" />
           </div>
-        </div>
+        </div>-->
 
         <div class="wrapper">
           <div class="item-form-group stacked">
-            <label>Component Modifiers<a class="item-modifiers"><i class="fas fa-cog"></i></a></label>            
+            <label>Component Modifiers<a class="item-modifiers-stats"><i class="fas fa-cog"></i></a></label>            
+            <div class="item-form-inputs">
+              <input disabled type="text" value="{{item.Modifiers}}" />
+            </div>
+          </div>
+          <div class="item-form-group stacked">
+            <label>Component Modifiers<a class="item-modifiers-slots"><i class="fas fa-cog"></i></a></label>            
+            <div class="item-form-inputs">
+              <input disabled type="text" value="{{item.Modifiers}}" />
+            </div>
+          </div>
+          <div class="item-form-group stacked">
+            <label>Component Modifiers<a class="item-modifiers-weapon"><i class="fas fa-cog"></i></a></label>            
             <div class="item-form-inputs">
               <input disabled type="text" value="{{item.Modifiers}}" />
             </div>
           </div>
         </div>
-          
     </div>
             
-    {{!-- Supplemental Tab --}}
-    <div class="tab supplemental" data-group="primary" data-tab="supplemental">
-      <div class="grid grid-8col">
-              <div class="grid-span-1">
-                  <label class="resource-label">Speed</label>
-                  <input type="number" name="system.speed" value="{{system.speed}}" data-dtype="Number" />
-              </div>
-              <div class="grid-span-1">
-                  <label class="resource-label">Detection</label>
-                  <input type="number" name="system.detection" value="{{system.detection}}" data-dtype="Number" />
-              </div>
-              <div class="grid-span-1">
-                  <label class="resource-label">Manoeuvrability</label>
-                  <input type="number" name="system.manoeuvrability" value="{{system.manoeuvrability}}" data-dtype="Number" />
-              </div>
-              <div class="grid-span-1">
-                  <label class="resource-label">Integrity</label>
-                  <input type="number" name="system.integrity" value="{{system.integrity}}" data-dtype="Number" />
-              </div>
-              <div class="grid-span-1">
-                  <label class="resource-label">Morale</label>
-                  <input type="number" name="system.morale" value="{{system.morale}}" data-dtype="Number" />
-              </div>
-              <div class="grid-span-1">
-                  <label class="resource-label">Crew Population</label>
-                  <input type="number" name="system.crew_population" value="{{system.crew_population}}" data-dtype="Number" />
-              </div>
-              <div class="grid-span-1">
-                  <label class="resource-label">Turret Rating</label>
-                  <input type="number" name="system.turretrating" value="{{system.turretrating}}" data-dtype="Number" />
-              </div>
-              <div class="grid-span-1">
-                  <label class="resource-label">Armour</label>
-                  <input type="number" name="system.armour" value="{{system.armour}}" data-dtype="Number" />
-              </div>
-      </div>
-      <div class="grid grid-8col">
-        <div class="grid-span-1">
-          <label class="resource-label">Slot</label>
-            <select name="system.weapon.slot">
-              {{#select system.weapon.slot}}
-                {{#each (locCfg "voidship_slot" )as |option key|}}
-                  <option value="{{key}}">{{option}}</option>
-                {{/each}}
-              {{/select}}
-            </select>
-        </div>
-        <div class="grid-span-1">
-          <label class="resource-label">NumDice</label>
-          <input type="number" name="system.weapon.diceNum" value="{{system.weapon.diceNum}}" data-dtype="Number" />
-        </div>
-        <div class="grid-span-1">
-          <label class="resource-label">DiceSize</label>
-          <input type="number" name="system.weapon.diceSize" value="{{system.weapon.diceSize}}" data-dtype="Number" />
-        </div>
-        <div class="grid-span-1">
-          <label class="resource-label">DiceBonus</label>
-          <input type="number" name="system.weapon.diceBonus" value="{{system.weapon.diceBonus}}" data-dtype="Number" />
-        </div>
-        <div class="grid-span-2">
-          <label class="resource-label">Range</label>
-          <input type="number" name="system.weapon.range.min" value="{{system.weapon.range.min}}" data-dtype="Number" />
-          <input type="number" name="system.weapon.range.max" value="{{system.weapon.range.max}}" data-dtype="Number" />
-        </div>
-        <div class="grid-span-1">
-          <label class="resource-label">Crit</label>
-          <input type="number" name="system.weapon.crit" value="{{system.weapon.crit}}" data-dtype="Number" />
-        </div>
-        <div class="grid-span-1">
-          <label class="resource-label">Str</label>
-          <input type="number" name="system.weapon.strength" value="{{system.weapon.strength}}" data-dtype="Number" />
-        </div>
-      </div>
-    </div>
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">

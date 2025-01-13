@@ -6,9 +6,11 @@
 
       <div class="form-group wrapper">
         <label>{{modifier.name}}</label>
-        <input type="number" name="{{modifier.name}}-value" value="{{modifier.value}}">
         {{#if modifier.hasMin}}
+        <input type="number" name="{{modifier.name}}-value" value="{{modifier.value}}">
         <input type="number" name="{{modifier.name}}-floor" value="{{modifier.floor}}">
+        {{else}}
+        <input type="number" name="{{modifier.name}}-base" value="{{modifier.value}}">
         {{/if}}
       </div>
 

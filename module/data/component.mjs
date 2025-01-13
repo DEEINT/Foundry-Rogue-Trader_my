@@ -15,11 +15,18 @@ export default class RogueTraderComponent extends RogueTraderItem {
       diceSize: new fields.StringField({ initial: "d10" }),
       diceBonus: new fields.StringField({ initial: "+0" }),
       range: new fields.SchemaField({
-        min:       new fields.NumberField({ ...requiredInteger, initial: 0, min: 0}),
-        max:       new fields.NumberField({ ...requiredInteger, initial: 0, min: 0}),
+        min:       new fields.NumberField({integer: true, initial: 0, min: 0}),
+        max:       new fields.NumberField({integer: true, initial: 0, min: 0}),
       }),
-      crit: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
-      strength: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
+      crit: new fields.NumberField({integer: true, initial: 0, min: 0 }),
+      strength: new fields.NumberField({integer: true, initial: 0, min: 0 }),
+    });
+
+    schema.weaponcapacity = new fields.SchemaField({
+      prow:       new fields.NumberField({integer: true, min: 0, max: 5}),
+      port:       new fields.NumberField({integer: true, min: 0, max: 5}),
+      starboard:  new fields.NumberField({integer: true, min: 0, max: 5}),
+      keel:       new fields.NumberField({integer: true, min: 0, max: 5}),
     });
 
     schema.formula = new fields.StringField({ blank: true });

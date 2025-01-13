@@ -21,10 +21,20 @@ export class ItemModifiers extends FormApplication
         let object = this.object;
         try {
             console.log("item object: ",object);
-            if(object.type=='component'||object.type=='hull'){
+            if(object.type=='component'){
                 let attr_obj = this.object.system.comp_attrs;
                 let array = Object.keys(attr_obj)
                 .map(key => this.convertElement(key,attr_obj[key]));
+                if(this.object.system.type=='hull'){
+                    let slt_obj = this.object.system.weaponcapacity;
+                    let slt_ar = Object.keys(slt_obj).map(key => this.convertElement(key,slt_obj[key]));
+                    array = array.concat(slt_ar);
+                }
+                if(this.object.system.type=='weapon'){
+                    let wpn_obj = this.object.system.weapon;
+                    let wpn_ar = Object.keys(wpn_obj).map(key => this.convertElement(key,wpn_obj[key]));
+                    array = array.concat(wpn_ar);
+                }
                 console.log("converted array: ",array);
                 data.modifiers = array;
                 //10.20.24 TODO: map schemas into value field and value+floor fields 
@@ -41,15 +51,33 @@ export class ItemModifiers extends FormApplication
     }
     _updateObject(event, formData)
     {
-        let newmodifiers = [];
-        console.log("updated form data: ",formData);
-        //TODO 10/27/24: okay, need to separate out the different schema types the results will map to and write them to the obj
+        let newmodifiers = {};
+        //console.log("formData from Update: ",formData);
         for (let key in formData)
         {
-            if (formData[key] && !key.includes("rating")){
+            //1.13.2025 TODO: figure out how to parse the weapon and weapon capacity stuff back into this updater
+            //probably need some new handlebars templates to parse these in the sheet and append new suffixes which this section can then sort by
+            //also TODO: need to build the display string of all nonzero values and show that?
+            if (formData[key] && key.includes("-base"))
+            {
+                let newkey = key.replace("-base",""); 
+                newmodifiers[newkey] = formData[key];
             }
+            else if(formData[key] && key.includes("-value")){
+                let newkey = key.replace("-value","");
+                if(!newmodifiers[newkey]) newmodifiers[newkey] = {value: formData[key]};
+                else newmodifiers[newkey].value = formData[key];
+            }
+            else if (formData[key] && key.includes("-floor")){
+                let newkey = key.replace("-floor","");
+                if(!newmodifiers[newkey]) newmodifiers[newkey] = {floor: formData[key]};
+                else newmodifiers[newkey].floor = formData[key];
+            }
+            console.log("new modifiers: ",newmodifiers);
         }
-        //this.object.update({"data.modifiers" : newmodifiers});
+        console.log("new modifiers being pushed: ", newmodifiers);
+        this.object.update({"system.comp_attrs" : newmodifiers});
+        console.log("system relevant attributes: ",this.object.system.comp_attrs);
     }
     convertElement(key,val){
         if (typeof val === 'object' && !Array.isArray(val) && val !== null)

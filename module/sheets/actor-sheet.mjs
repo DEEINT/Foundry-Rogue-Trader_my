@@ -138,6 +138,15 @@ export class RogueTraderActorSheet extends ActorSheet {
   }
 
   _prepareVoidshipItems(context) {
+    //TODO: needs to handle the new hull-as-component and pull slot data from that
+    //Also needs to be able to limit to just one hull and such
+    console.log("voidship item update context: ", context);
+    let net_attributes = {
+      space: 0,
+      ship_points: 0,
+      power:0
+    }
+
     function rankComps(comp){
       if(!comp.rank) comp.rank = 0;
       if(comp.system.type==='essential' && vs_rank.essential[comp.system.subtype]) comp.rank = comp.rank + vs_rank.essential[comp.system.subtype];
@@ -145,7 +154,6 @@ export class RogueTraderActorSheet extends ActorSheet {
       else if (vs_rank[comp.type] && vs_rank[comp.type]=='hull') comp.rank = comp.rank + vs_rank[comp.system.type];
       else console.log("no rank found for: ",comp);
       //return comp;
-      //TODO handle weapons
     }
     
     const vs_config = {
@@ -193,7 +201,7 @@ export class RogueTraderActorSheet extends ActorSheet {
     const components = [];
 
     hull = context.items.find((item) => item.type==="hull");
-    console.log("here's the hull:",hull);
+    //console.log("here's the hull:",hull);
     if(hull){
       vs_config.hull--;
       vs_config.slots=hull.system.weaponcapacity;
@@ -202,36 +210,50 @@ export class RogueTraderActorSheet extends ActorSheet {
 
     for (let i of context.items) {
       if (i.type === 'component'){
+        for (let j of Object.keys(net_attributes)){
+          if (i.system.comp_attrs[j]){
+            net_attributes[j] += i.system.comp_attrs[j]
+          }
+        }
         rankComps(i);
         //TODO: check config capacity
         if (i.system.type==='essential' && vs_config.essential[i.system.subtype] && i.system.equipped){
           vs_config.essential[i.system.subtype]--;
-          console.log("got one equipped engine");
+          //console.log("got one equipped engine");
         }
         else if (i.system.type==='essential' && vs_config.essential[i.system.subtype]<=0){
           i.system.equipped=false;
-          console.log("already one engine here");
+          //console.log("already one engine here");
         }
         else if (i.system.type==='weapon' && vs_config.slots[i.system.weapon.slot] && i.system.equipped){
           vs_config.slots[i.system.weapon.slot]--;
-          console.log("equipped weapon found");
+          //console.log("equipped weapon found");
         }
         else if (i.system.type==='weapon' && vs_config.slots[i.system.weapon.slot] <1){
           i.system.equipped=false;
-          console.log("excess weapon found");
+          //console.log("excess weapon found");
         }
         else { console.log("component isn't essential or a weapon?");}
         components.push(i);
-        console.log("the item: ",i);
+        //console.log("the item: ",i);
       }
     }
 
     //validate final config, set values, and return
-    console.log("ending config: ",vs_config);
+    //console.log("ending config: ",vs_config);
     context.hull = hull;
     context.components = components;
-    console.log("the final components: ",context.components);
-    console.log("the final hull:",context.hull)
+    for (let j of Object.keys(net_attributes)){
+      //console.log("here's the j: ",j);
+      //console.log("here's the actor: ",context.actor);
+      if (context.data.system[j]){
+        context.data.system[j].value = net_attributes[j];
+        //console.log("net attributes of: ",net_attributes[j])
+      }
+    }
+    //console.log("the final components: ",context.components);
+    //console.log("the final hull:",context.hull)
+    console.log("actorData? ", context.data);
     return context;
   }
 

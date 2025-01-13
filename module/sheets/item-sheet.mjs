@@ -20,7 +20,7 @@ export class RogueTraderItemSheet extends ItemSheet {
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'description',
+          initial: 'core',
         },
       ],
     });
@@ -71,7 +71,7 @@ export class RogueTraderItemSheet extends ItemSheet {
 
     // Roll handlers, click handlers, etc. would go here.
     //ported from W&G
-    html.find(".item-modifiers").click(ev => {
+    html.find(".item-modifiers-stats").click(ev => {
       if (this.item.type == "weaponUpgrade" || this.item.type == "ammo" || this.item.type == "component" || this.item.type == "hull")
       {
         let type = ev.currentTarget.classList.contains("add") ? "add" : "remove";
@@ -79,6 +79,12 @@ export class RogueTraderItemSheet extends ItemSheet {
       }
       else 
         new ItemModifiers(this.item).render(true);
+    });
+    html.find(".item-modifiers-slots").click(ev => {
+        new ItemModifiers(this.item, 's').render(true);
+    });
+    html.find(".item-modifiers-weapon").click(ev => { 
+        new ItemModifiers(this.item, 'w').render(true);
     });
 
     // Active Effect management
