@@ -16,8 +16,8 @@
   "media": [
     {
       "type": "setup",
-      "url": "systems/rogue-trader/assets/anvil-impact.png",
-      "thumbnail": "systems/rogue-trader/assets/anvil-impact.png"
+      "url": "systems/rogue-trader_my/assets/anvil-impact.png",
+      "thumbnail": "systems/rogue-trader_my/assets/anvil-impact.png"
     }
   ],
   "version": "2.0.34",
@@ -25,8 +25,8 @@
     "minimum": 11,
     "verified": "11.315"
   },
-  "esmodules": ["module/rogue-trader.mjs"],
-  "styles": ["css/rogue-trader.css"],
+  "esmodules": ["module/rogue-trader_my.mjs"],
+  "styles": ["css/rogue-trader_my.css"],
   "languages": [
     {
       "lang": "en",
@@ -39,7 +39,7 @@
   "socket": false,
   "manifest": "https://github.com/DEEINT/Foundry-Rogue-Trader_my/edit/main/system.json",
   "download": "This must link to a .zip file of the current version",
-  "background": "systems/rogue-trader/assets/anvil-impact.png",
+  "background": "systems/rogue-trader_my/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
   "primaryTokenAttribute": "health",
