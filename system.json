@@ -37,7 +37,7 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "https://github.com/DEEINT/Foundry-Rogue-Trader_my/edit/main/system.json",
+  "manifest": "https://github.com/DEEINT/Foundry-Rogue-Trader_my/blob/main/system.json",
   "download": "https://github.com/StealthBow/RogueTrader-FoundryVTT/releases/download/0.0.4/rogue-trader.zip",
   "background": "systems/rogue-trader_my/assets/anvil-impact.png",
   "gridDistance": 5,
