@@ -38,7 +38,7 @@
   "packFolders": [],
   "socket": false,
   "manifest": "https://github.com/DEEINT/Foundry-Rogue-Trader_my/edit/main/system.json",
-  "download": "This must link to a .zip file of the current version",
+  "download": "https://github.com/DEEINT/Foundry-Rogue-Trader_my/archive/refs/tags/v1.0.0.zip",
   "background": "systems/rogue-trader_my/assets/anvil-impact.png",
   "gridDistance": 5,
   "gridUnits": "ft",
