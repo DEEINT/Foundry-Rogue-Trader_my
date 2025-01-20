@@ -8,10 +8,10 @@
       "discord": "Argagarg"
     }
   ],
-  "url": "Replace this with a link to your public repository",
+  "url": "https://github.com/DEEINT/Foundry-Rogue-Trader_my",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "Replace this with a link to file issues or tickets",
+  "bugs": "https://github.com/DEEINT/Foundry-Rogue-Trader_my",
   "changelog": "CHANGELOG.md",
   "media": [
     {
@@ -37,7 +37,7 @@
   "packs": [],
   "packFolders": [],
   "socket": false,
-  "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
+  "manifest": "https://github.com/DEEINT/Foundry-Rogue-Trader_my/edit/main/system.json",
   "download": "This must link to a .zip file of the current version",
   "background": "systems/rogue-trader/assets/anvil-impact.png",
   "gridDistance": 5,
